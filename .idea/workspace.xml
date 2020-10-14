@@ -20,9 +20,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b15e65f1-0011-4d94-affd-3dc0c7d6ea11" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test.router.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/githubRequest.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile.app" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile.tunnel" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/github/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tunnel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test.router.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/githubRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/github/githubRequest.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,83 +47,39 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/server.js" />
-    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.1.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Documents\Projects\g-build-monitor\src\utils" />
-    </key>
-  </component>
-  <component name="RunManager">
-    <configuration name="server.js" type="NodeJSConfigurationType" nameIsGenerated="true" path-to-js-file="server.js" working-dir="$PROJECT_DIR$">
+  <component name="RunManager" selected="Attach to Node.js/Chrome.Attach debugger">
+    <configuration name="Attach debugger" type="ChromiumRemoteDebugType" factoryName="Chromium Remote" port="9229" restartOnDisconnect="true">
       <method v="2" />
     </configuration>
+    <configuration name="Run dockerized" type="docker-deploy" factoryName="docker-compose.yml" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Attach to Node.js/Chrome.Attach debugger" />
+      <item itemvalue="Docker.Run dockerized" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="b15e65f1-0011-4d94-affd-3dc0c7d6ea11" name="Default Changelist" comment="" />
-      <created>1602631393981</created>
+      <created>1602719384301</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1602631393981</updated>
-      <workItem from="1602631395037" duration="720000" />
-      <workItem from="1602632203982" duration="5000" />
-      <workItem from="1602632225450" duration="1381000" />
-      <workItem from="1602633686135" duration="1024000" />
+      <updated>1602719384301</updated>
+      <workItem from="1602719385880" duration="10000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="885" y="257" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602632114324">
-      <screen x="0" y="0" width="2194" height="1194" />
-    </state>
-    <state x="885" y="257" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2194.1194@0.0.2194.1194" timestamp="1602632114324" />
-    <state x="1202" y="400" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602633444056">
-      <screen x="0" y="0" width="2194" height="1194" />
-    </state>
-    <state x="1202" y="400" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2194.1194@0.0.2194.1194" timestamp="1602633444056" />
-    <state x="1210" y="357" key="FileChooserDialogImpl" timestamp="1602632112469">
-      <screen x="0" y="0" width="2194" height="1194" />
-    </state>
-    <state x="1210" y="357" key="FileChooserDialogImpl/0.0.2194.1194@0.0.2194.1194" timestamp="1602632112469" />
-    <state width="1507" height="330" key="GridCell.Tab.0.bottom" timestamp="1602634687831">
-      <screen x="0" y="0" width="2194" height="1194" />
-    </state>
-    <state width="1507" height="330" key="GridCell.Tab.0.bottom/0.0.2194.1194@0.0.2194.1194" timestamp="1602634687831" />
-    <state width="1507" height="330" key="GridCell.Tab.0.center" timestamp="1602634687831">
-      <screen x="0" y="0" width="2194" height="1194" />
-    </state>
-    <state width="1507" height="330" key="GridCell.Tab.0.center/0.0.2194.1194@0.0.2194.1194" timestamp="1602634687831" />
-    <state width="1507" height="330" key="GridCell.Tab.0.left" timestamp="1602634687831">
-      <screen x="0" y="0" width="2194" height="1194" />
-    </state>
-    <state width="1507" height="330" key="GridCell.Tab.0.left/0.0.2194.1194@0.0.2194.1194" timestamp="1602634687831" />
-    <state width="1507" height="330" key="GridCell.Tab.0.right" timestamp="1602634687831">
-      <screen x="0" y="0" width="2194" height="1194" />
-    </state>
-    <state width="1507" height="330" key="GridCell.Tab.0.right/0.0.2194.1194@0.0.2194.1194" timestamp="1602634687831" />
   </component>
 </project>

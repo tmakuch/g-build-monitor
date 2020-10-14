@@ -1,0 +1,26 @@
+version: '3.7'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.app
+    volumes:
+      - .:/usr/local/srv
+      - /usr/local/srv/node_modules
+    command: ./node_modules/.bin/nodemon -L --inspect=0.0.0.0:9229 server.js
+    ports:
+      - 9229:9229
+    env_file: env/.env
+    environment:
+      - APP_PORT=3000
+      - GITHUB_CLIENT_ID=Iv1.01862e548f394a45
+  tunnel:
+    build:
+      context: .
+      dockerfile: Dockerfile.app
+    command: node tunnel.js
+    environment:
+      - APP_PORT=3000
+      - TUNEL_DOMAIN=buildmonitordebugtmvzg
+#     https://buildmonitordebugtmvzg.loca.lt/
+      - MAIN_POD_NAME=app
