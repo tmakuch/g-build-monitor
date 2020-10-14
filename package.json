@@ -1,0 +1,24 @@
+{
+  "name": "g-build-monitor",
+  "version": "0.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tmakuch/g-build-monitor.git"
+  },
+  "author": "Tadeusz Makuch <tadeusz.makuch@vizlib.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tmakuch/g-build-monitor/issues"
+  },
+  "homepage": "https://github.com/tmakuch/g-build-monitor#readme",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "express": "^4.17.1",
+    "rxjs": "^6.6.3"
+  }
+}
