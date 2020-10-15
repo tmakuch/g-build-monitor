@@ -1,6 +1,6 @@
 const router = require("express").Router();
 
-router.get("/webook", (req, res) => {
+router.get("/webhook", (req, res) => {
   console.log(">WEBHOOK REQUEST");
   console.log(req);
   res.status(200).end();
