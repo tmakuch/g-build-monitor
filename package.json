@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon -L --watch . server.js",
+    "dev": "nodemon -L --watch . --inspect server.js",
     "test": "echo u good"
   },
   "repository": {
@@ -18,15 +18,22 @@
   },
   "homepage": "https://github.com/tmakuch/g-build-monitor#readme",
   "dependencies": {
-    "@octokit/rest": "^18.0.6",
-    "axios": "^0.20.0",
-    "body-parser": "^1.19.0",
-    "express": "^4.17.1",
-    "jsonwebtoken": "^8.5.1",
-    "rxjs": "^6.6.3"
+    "@octokit/app": "^10.0.0",
+    "fastify": "^3.8.0",
+    "fastify-formbody": "^5.0.0",
+    "fastify-static": "^3.4.0"
   },
   "devDependencies": {
-    "localtunnel": "^2.0.0",
-    "nodemon": "^2.0.5"
+    "husky": "^5.0.9",
+    "localtunnel": "^2.0.1",
+    "nodemon": "^2.0.7",
+    "pino-pretty": "^4.5.0",
+    "prettier": "^2.2.1",
+    "pretty-quick": "^3.1.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   }
 }

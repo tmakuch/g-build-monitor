@@ -1,13 +1,22 @@
-const http = require("http");
-const app = require("express")();
-const bodyParser = require("body-parser");
-const port = process.env.APP_PORT || 90;
+const fastify = require("fastify")({ logger: { prettyPrint: true } });
+const config = require("./config");
 
-app.use(bodyParser.json());
-app.use("/github", require("./src/github"));
-app.get("/health", (req, res) => res.send("Staying alive!").end());
-app.get("/", (req, res) => res.send("Hello world").end());
+fastify.register(require("fastify-formbody"));
 
-http.createServer(app).listen(port, () => {
-  console.log("Server listening on port", port);
+fastify.register(require("./src"), { prefix: config.basePath });
+
+fastify.register(require("fastify-static"), {
+  root: require("path").join(__dirname, "/dist"),
+  prefix: "/",
+  wildcard: "/**",
 });
+fastify.setNotFoundHandler((req, res) => res.sendFile("index.html"));
+
+(async () => {
+  try {
+    await fastify.listen(config.port);
+  } catch (err) {
+    fastify.log.error(err);
+    process.exit(1);
+  }
+})();
