@@ -4,7 +4,7 @@ const plugins = require("./monitor");
 module.exports = (fastify, opts, done) => {
   fastify.get("/health", () => "ok");
 
-  const monitorData = plugins.init(config.monitorConfig);
+  const monitorData = plugins.init(fastify, config.monitorConfig, null);
 
   fastify.io.of("/").on("connection", (socket) => {
     fastify.log.info("Socket connected: " + socket.id);

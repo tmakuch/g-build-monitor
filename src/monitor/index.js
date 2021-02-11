@@ -1,22 +1,40 @@
 const { shareReplay } = require("rxjs/operators");
-const { Observable } = require("rxjs");
+const { combineLatest } = require("rxjs");
 const plugins = require("./plugins");
+const { map } = require("rxjs/operators");
 
 module.exports = {
-  init: (config) => {
-    const dataStream = new Observable((subscriber) => {
-      let tick = 0;
-      subscriber.next({ tick: tick, first: true, time: Date.now() });
-      const pid = setInterval(() => {
-        subscriber.next({ tick: ++tick, time: Date.now() });
-      }, 5000);
+  init: (fastify, config, webhookStream) => {
+    const pipes = Object.keys(config).reduce(
+      (result, pluginName) => {
+        const plugin = plugins.resolve(pluginName)(
+          fastify,
+          config[pluginName],
+          webhookStream,
+        );
 
-      return () => {
-        clearInterval(pid);
-      };
-    }).pipe(
+        result.fulls.push(
+          plugin
+            .getFullStream()
+            .pipe(map((value) => ({ [pluginName]: value }))),
+        );
+        // result.partials.push(plugin.getPartialStream());
+
+        return result;
+      },
+      {
+        fulls: [],
+        partials: [],
+      },
+    );
+
+    const dataStream = combineLatest(...pipes.fulls).pipe(
+      map((fullValues) => {
+        return Object.assign({}, ...fullValues);
+      }),
       shareReplay({
         bufferSize: 1,
+        refCount: true,
       }),
     );
 
