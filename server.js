@@ -3,6 +3,7 @@ const config = require("./config");
 
 fastify.register(require("fastify-formbody"));
 
+fastify.register(require("fastify-socket.io"));
 fastify.register(require("./src"), { prefix: config.basePath });
 
 fastify.register(require("fastify-static"), {

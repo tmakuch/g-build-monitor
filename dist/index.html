@@ -1,1 +1,68 @@
-Hello world!
+<html>
+    <head>
+        <title>Build Monitor</title>
+        <meta charset="UTF-8">
+        <style>
+            body {
+                margin: 0;
+                box-sizing: border-box;
+                padding: 10px;
+                height: 100%;
+                width: 50%;
+                display: grid;
+                grid-template-rows: auto 1fr;
+                grid-template-columns: 1fr 1fr;
+                grid-template-areas: "header header";
+            }
+            .header {
+                grid-area: header;
+                text-align: center;
+            }
+            .socket-box {
+                margin: 10px;
+                padding: 5px;
+                border: 2px solid black;
+                display: flex;
+                flex-flow: column nowrap;
+            }
+            .socket-box > div {
+                border: 2px dotted black;
+                margin-top: 5px;
+                flex: 1 0 auto;
+                white-space: pre;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">Build Monitors</div>
+        <div class="socket-box">
+            <button>On/Off</button>
+            <div></div>
+        </div>
+        <div class="socket-box">
+            <button>On/Off</button>
+            <div></div>
+        </div>
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+          document.querySelectorAll('.socket-box').forEach(socketBox => {
+            let socket;
+
+            const contentBox = socketBox.querySelector('div');
+            socketBox.querySelector('button').addEventListener('click', () => {
+              if (socket) {
+                socket.close();
+                socket = null;
+                contentBox.textContent = "";
+                return;
+              }
+
+              socket = io('http://localhost:3300');
+              socket.on('tick', content => {
+                contentBox.textContent = JSON.stringify(content, null, 2);
+              });
+            });
+          });
+        </script>
+    </body>
+</html>
