@@ -1,5 +1,5 @@
 const plugins = {
-  "github-pulls": require("./github/pullRequests"),
+  "github-pulls": require("./github/pullRequests/pullRequestsPlugin"),
 };
 
 module.exports = {

@@ -1,6 +1,6 @@
 const { shareReplay } = require("rxjs/operators");
 const { combineLatest } = require("rxjs");
-const plugins = require("./plugins");
+const plugins = require("./plugins/pluginsResolver");
 const { map } = require("rxjs/operators");
 
 module.exports = {

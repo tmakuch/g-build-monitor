@@ -1,5 +1,5 @@
 const { Observable } = require("rxjs");
-const pullPRs = require("./pullPRs");
+const pullPRs = require("./makePRRequest");
 
 module.exports = (fastify, config, webhookStream) => {
   const fullStream = new Observable(async (subscriber) => {

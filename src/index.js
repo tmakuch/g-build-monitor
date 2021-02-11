@@ -1,5 +1,5 @@
 const config = require("../config");
-const plugins = require("./monitor");
+const plugins = require("./monitor/monitor");
 
 module.exports = (fastify, opts, done) => {
   fastify.get("/health", () => "ok");
