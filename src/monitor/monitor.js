@@ -1,7 +1,6 @@
-const { shareReplay } = require("rxjs/operators");
-const { combineLatest } = require("rxjs");
+const { share, shareReplay, map } = require("rxjs/operators");
+const { combineLatest, merge } = require("rxjs");
 const plugins = require("./plugins/pluginsResolver");
-const { map } = require("rxjs/operators");
 
 module.exports = {
   init: (fastify, config, webhookStream) => {
@@ -18,7 +17,11 @@ module.exports = {
             .getFullStream()
             .pipe(map((value) => ({ [pluginName]: value }))),
         );
-        // result.partials.push(plugin.getPartialStream());
+        result.partials.push(
+          plugin
+            .getPartialStream()
+            .pipe(map((value) => ({ [pluginName]: value }))),
+        );
 
         return result;
       },
@@ -38,8 +41,11 @@ module.exports = {
       }),
     );
 
+    const partialsStream = merge(...pipes.partials).pipe(share());
+
     return {
-      getStream: () => dataStream,
+      getFullStream: () => dataStream,
+      getPartialStream: () => partialsStream,
     };
   },
 };

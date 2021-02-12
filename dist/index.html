@@ -28,8 +28,15 @@
             .socket-box > div {
                 border: 2px dotted black;
                 margin-top: 5px;
-                flex: 1 0 auto;
+                flex: 1 1 100px;
                 white-space: pre;
+                overflow-x: hidden;
+                overflow-y: auto;
+            }
+            .socket-box > div > pre {
+                margin: 0 5px 0 0;
+                white-space: pre-wrap;
+                word-break: break-all;
             }
         </style>
     </head>
@@ -37,29 +44,36 @@
         <div class="header">Build Monitors</div>
         <div class="socket-box">
             <button>On/Off</button>
-            <div></div>
+            <div class="fullBox"></div>
+            <div class="partialBox"></div>
         </div>
         <div class="socket-box">
             <button>On/Off</button>
-            <div></div>
+            <div class="fullBox"></div>
+            <div class="partialBox"></div>
         </div>
         <script src="/socket.io/socket.io.js"></script>
         <script>
           document.querySelectorAll('.socket-box').forEach(socketBox => {
             let socket;
 
-            const contentBox = socketBox.querySelector('div');
+            const fullBox = socketBox.querySelector('.fullBox');
+            const partialBox = socketBox.querySelector('.partialBox');
             socketBox.querySelector('button').addEventListener('click', () => {
               if (socket) {
                 socket.close();
                 socket = null;
-                contentBox.textContent = "";
+                fullBox.textContent = "";
+                partialBox.textContent = "";
                 return;
               }
 
-              socket = io('http://localhost:3300');
-              socket.on('tick', content => {
-                contentBox.textContent = JSON.stringify(content, null, 2);
+              socket = io(window.location.href);
+              socket.on('full', content => {
+                fullBox.innerHTML = `<pre>${JSON.stringify(content, null, 2)}</pre>`;
+              });
+              socket.on('partial', content => {
+                partialBox.innerHTML = `<pre>${JSON.stringify(content, null, 2)}</pre>`;
               });
             });
           });
